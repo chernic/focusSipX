@@ -1,0 +1,50 @@
+﻿生成启动时间为 2018-02-01 10:37:36。
+     1>项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\SDLtest\SDLtest.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Debug\SDL2test.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\SDLtest\/../../include" /Z7 /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0700 /Gm- /EHsc /MD /GS- /arch:SSE /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Debug\\" /Fd"Win32\Debug\vc100.pdb" /Gd /TC /analyze- /Zl /errorReport:prompt ..\..\src\test\SDL_test_assert.c ..\..\src\test\SDL_test_common.c ..\..\src\test\SDL_test_compare.c ..\..\src\test\SDL_test_crc32.c ..\..\src\test\SDL_test_font.c ..\..\src\test\SDL_test_fuzzer.c ..\..\src\test\SDL_test_harness.c ..\..\src\test\SDL_test_imageBlit.c ..\..\src\test\SDL_test_imageBlitBlend.c ..\..\src\test\SDL_test_imageFace.c ..\..\src\test\SDL_test_imagePrimitives.c ..\..\src\test\SDL_test_imagePrimitivesBlend.c ..\..\src\test\SDL_test_log.c ..\..\src\test\SDL_test_md5.c ..\..\src\test\SDL_test_random.c
+         SDL_test_assert.c
+         SDL_test_common.c
+         SDL_test_compare.c
+         SDL_test_crc32.c
+         SDL_test_font.c
+     1>..\..\src\test\SDL_test_font.c(1087): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>..\..\src\test\SDL_test_font.c(2184): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         SDL_test_fuzzer.c
+         SDL_test_harness.c
+         SDL_test_imageBlit.c
+         SDL_test_imageBlitBlend.c
+         SDL_test_imageFace.c
+         SDL_test_imagePrimitives.c
+         SDL_test_imagePrimitivesBlend.c
+         SDL_test_log.c
+         SDL_test_md5.c
+         SDL_test_random.c
+         正在生成代码...
+       Lib:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2test.lib" /NOLOGO Win32\Debug\SDL_test_assert.obj
+         Win32\Debug\SDL_test_common.obj
+         Win32\Debug\SDL_test_compare.obj
+         Win32\Debug\SDL_test_crc32.obj
+         Win32\Debug\SDL_test_font.obj
+         Win32\Debug\SDL_test_fuzzer.obj
+         Win32\Debug\SDL_test_harness.obj
+         Win32\Debug\SDL_test_imageBlit.obj
+         Win32\Debug\SDL_test_imageBlitBlend.obj
+         Win32\Debug\SDL_test_imageFace.obj
+         Win32\Debug\SDL_test_imagePrimitives.obj
+         Win32\Debug\SDL_test_imagePrimitivesBlend.obj
+         Win32\Debug\SDL_test_log.obj
+         Win32\Debug\SDL_test_md5.obj
+         Win32\Debug\SDL_test_memory.obj
+         Win32\Debug\SDL_test_random.obj
+         SDLtest.vcxproj -> E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2test.lib
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Debug\SDL2test.unsuccessfulbuild”。
+         正在对“Win32\Debug\SDL2test.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\SDLtest\SDLtest.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.76

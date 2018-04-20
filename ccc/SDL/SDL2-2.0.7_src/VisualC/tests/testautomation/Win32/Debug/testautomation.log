@@ -1,0 +1,42 @@
+﻿生成启动时间为 2017-12-19 10:43:56。
+     1>项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\tests\testautomation\testautomation.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Debug\testautomation.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Link:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32\Debug\testautomation.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.lib" /MACHINE:X86 Win32\Debug\testautomation.obj
+         Win32\Debug\testautomation_audio.obj
+         Win32\Debug\testautomation_clipboard.obj
+         Win32\Debug\testautomation_events.obj
+         Win32\Debug\testautomation_hints.obj
+         Win32\Debug\testautomation_keyboard.obj
+         Win32\Debug\testautomation_main.obj
+         Win32\Debug\testautomation_mouse.obj
+         Win32\Debug\testautomation_pixels.obj
+         Win32\Debug\testautomation_platform.obj
+         Win32\Debug\testautomation_rect.obj
+         Win32\Debug\testautomation_render.obj
+         Win32\Debug\testautomation_rwops.obj
+         Win32\Debug\testautomation_sdltest.obj
+         Win32\Debug\testautomation_stdlib.obj
+         Win32\Debug\testautomation_surface.obj
+         Win32\Debug\testautomation_syswm.obj
+         Win32\Debug\testautomation_timer.obj
+         Win32\Debug\testautomation_video.obj
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2.lib"
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2main.lib"
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2test.lib"
+         LINK : 没有找到 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.exe 或上一个增量链接没有生成它；正在执行完全链接
+            正在创建库 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.lib 和对象 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.exp
+         testautomation.vcxproj -> E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testautomation.exe;#1" /manifest Win32\Debug\testautomation.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Debug\testautomation.unsuccessfulbuild”。
+         正在对“Win32\Debug\testautomation.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\tests\testautomation\testautomation.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.34

@@ -1,0 +1,26 @@
+﻿生成启动时间为 2017-12-19 10:56:01。
+     1>项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\tests\testscale\testscale.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Debug\testscale.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       CustomBuild:
+         所有输出均为最新。
+       ClCompile:
+         所有输出均为最新。
+       Link:
+         D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32\Debug\testscale.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.lib" /MACHINE:X86 Win32\Debug\testscale.obj
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2.lib"
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2main.lib"
+         "E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\SDL2test.lib"
+         LINK : 没有找到 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.exe 或上一个增量链接没有生成它；正在执行完全链接
+            正在创建库 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.lib 和对象 E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.exp
+         testscale.vcxproj -> E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\Win32\Debug\testscale.exe;#1" /manifest Win32\Debug\testscale.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Debug\testscale.unsuccessfulbuild”。
+         正在对“Win32\Debug\testscale.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\focusSip\src\SDL\SDL2-2.0.7_src\VisualC\tests\testscale\testscale.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.53
