@@ -1,0 +1,10 @@
+; ATLTutorial2010.def : 定义模块参数。
+
+LIBRARY
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE
