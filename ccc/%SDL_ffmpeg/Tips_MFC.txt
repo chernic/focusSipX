@@ -1,0 +1,19 @@
+on_call_state
+
+https://www.cnblogs.com/lidabo/archive/2013/12/17/3478754.html
+
+https://www.cnblogs.com/liangxiaofeng/p/5066026.html
+使用Win32/ATL建立窗口的过程
+
+巧】分层窗口Layered Windows和Direct2D技术
+http://raylinn.iteye.com/blog/702271
+
+MFC中异形分层窗口设计
+https://jingyan.baidu.com/article/ac6a9a5e4ebc252b653eac9d.html
+
+ VC++界面编程之--使用分层窗口实现界面皮肤
+http://blog.csdn.net/rmxming/article/details/12371309
+
+WTL 中的COwnerDraw应用
+http://blog.csdn.net/achellies/article/details/6659034
+

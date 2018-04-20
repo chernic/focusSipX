@@ -1,0 +1,23 @@
+// SDL2.0多分屏显示
+// http://blog.csdn.net/u010694337/article/details/47804763
+// 参考http://blog.csdn.net/leixiaohua1020/article/details/38868499
+
+// Win7 VS2015环境使用SDL2-2.0.4
+// https://www.cnblogs.com/kileyi/p/5394154.html
+// 主要是SDL重定义了main
+
+// MFC中如何利用ffmpeg和SDL2.0多线程多窗口播放摄像头的视频
+// http://lib.csdn.net/article/liveplay/37267
+
+
+// 最简单的基于FFMPEG+SDL的视频播放器 ver2 （采用SDL2.0）
+// http://blog.csdn.net/leixiaohua1020/article/details/38868499
+
+// SDL实现overlay方式双屏显示的应用流程分析(thinkvd开发日志)[转]
+// http://blog.csdn.net/dong_mingyi/article/details/36673653
+
+// [原]零基础学习SDL开发之在Android使用SDL2.0显示BMP叠加图
+// http://www.cnblogs.com/tanlon/p/3928344.html
+
+// TALK 多路视频策略显示
+// http://blog.csdn.net/niino/article/details/13507945
