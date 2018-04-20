@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<TITLE>对象 noneWin 的 ATL 8.0 测试页</TITLE>
+</HEAD>
+<BODY>
+
+<OBJECT ID="noneWin" CLASSID="CLSID:8DE7F2C0-CED3-4C78-A05E-EC72CFBAF4FE"></OBJECT>
+
+<input type="button" value="check_if_exited" onclick="check_if_exited()"/>
+<input type="button" value="showWin" onclick="showWin()"/>
+<input type="button" value="hideWin" onclick="hideWin()"/>
+
+<script language="javascript">
+function check_if_exited(){
+    console.log("check_if_exited<<<<<<<");
+    var o = new ActiveXObject("tinyAtlWin.noneWin.1");
+    if(o){
+      alert("tinyAtlWin.noneWin.1 存在 \tinyAtlWin.ocx 已成功加载");
+    }
+    else{
+      alert("tinyAtlWin.noneWin.1 不存在 \tinyAtlWin.ocx 加载失败");
+    }
+}
+function showWin(){
+    console.log("showWin<<<<<<<");
+    try{ 
+      var retVal = document.all.noneWin.showWin();
+      alert("RetVal:(showWin) " + retVal);
+    }catch (e){ 
+      alert( "showWin : " + e.message); 
+    }
+}
+function hideWin(){
+    console.log("hideWin<<<<<<<");
+    try{ 
+      var retVal = document.all.noneWin.hideWin();
+      alert("RetVal:(hideWin) " + retVal);
+    }catch (e){ 
+      alert( "hideWin : " + e.message); 
+    }
+}
+</script>
+</BODY>
+</HTML>

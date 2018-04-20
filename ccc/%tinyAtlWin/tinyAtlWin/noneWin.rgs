@@ -1,0 +1,34 @@
+HKCR
+{
+	tinyAtlWin.noneWin.1 = s 'noneWin Class'
+	{
+		CLSID = s '{8DE7F2C0-CED3-4C78-A05E-EC72CFBAF4FE}'
+	}
+	tinyAtlWin.noneWin = s 'noneWin Class'
+	{
+		CLSID = s '{8DE7F2C0-CED3-4C78-A05E-EC72CFBAF4FE}'
+		CurVer = s 'tinyAtlWin.noneWin.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8DE7F2C0-CED3-4C78-A05E-EC72CFBAF4FE} = s 'noneWin Class'
+		{
+			ProgID = s 'tinyAtlWin.noneWin.1'
+			VersionIndependentProgID = s 'tinyAtlWin.noneWin'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 102'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{31BC3635-9845-4C31-B140-2ADB73A39883}'
+			'Version' = s '1.0'
+		}
+	}
+}

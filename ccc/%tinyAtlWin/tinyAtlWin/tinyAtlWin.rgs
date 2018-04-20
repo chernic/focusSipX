@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'tinyAtlWin'
+		'tinyAtlWin.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {53771816-FD4C-4FA9-996C-939EDB0FD1E9} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{31BC3635-9845-4C31-B140-2ADB73A39883}'
+		}
+	}
+}

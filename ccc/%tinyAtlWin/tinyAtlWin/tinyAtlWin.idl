@@ -1,0 +1,79 @@
+// tinyAtlWin.idl : tinyAtlWin 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(tinyAtlWin.tlb)和封送处理代码。
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	helpstring("IComponentRegistrar 接口"),
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(9830B9D6-2295-413A-ABAD-855263391F38),
+	dual,
+	nonextensible,
+	helpstring("InoneWin 接口"),
+	pointer_default(unique)
+]
+interface InoneWin : IDispatch{
+	[id(1), helpstring("方法showWin")] HRESULT showWin([out,retval] BSTR* ret);
+	[id(2), helpstring("方法hideWin")] HRESULT hideWin([out,retval] BSTR* ret);
+};
+
+[
+	uuid(31BC3635-9845-4C31-B140-2ADB73A39883),
+	version(1.0),
+	helpstring("tinyAtlWin 1.0 类型库"),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{53771816-FD4C-4FA9-996C-939EDB0FD1E9}")
+]
+library tinyAtlWinLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(53771816-FD4C-4FA9-996C-939EDB0FD1E9),
+		helpstring("ComponentRegistrar 类")
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(8A4E5D16-62D7-471F-B448-AD6F112869E3),
+		helpstring("_InoneWinEvents 接口")
+	]
+	dispinterface _InoneWinEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(8DE7F2C0-CED3-4C78-A05E-EC72CFBAF4FE),
+		control,
+		licensed,
+		helpstring("noneWin Class")
+	]
+	coclass noneWin
+	{
+		[default] interface InoneWin;
+		[default, source] dispinterface _InoneWinEvents;
+	};
+};
