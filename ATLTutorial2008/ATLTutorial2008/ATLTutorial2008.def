@@ -1,0 +1,10 @@
+; ATLTutorial2008.def : 定义模块参数。
+
+LIBRARY      "ATLTutorial2008.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

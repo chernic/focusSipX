@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'ATLTutorial2008'
+		'ATLTutorial2008.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {91B60B58-6C32-4A72-8D08-872BC0DDC355} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AEAC28B3-0DD3-4A1D-8057-C07947BB10ED}'
+		}
+	}
+}
