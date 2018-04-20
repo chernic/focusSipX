@@ -1,0 +1,79 @@
+☆☆☆☆☆ 注册说明
+  运行脚本 _reg.bat 注册
+  运行脚本 _reg-del.bat 反注册
+  
+☆☆☆☆☆ uuid说明
+  CompReg\              {194F9248-F190-4BF8-ADAD-6ED35F0B919D}
+  IComponentRegistrar\  {A817E7A2-43FA-11D0-9E44-00AA00B6770A}
+  _IVideoAgentEvents\   {DC91CBCE-4B9E-4369-80B9-39341EEFD814}
+  FocusSip\             {15E1E788-3086-4B54-83C0-449EF56CD4EE}
+  IFocusSip\            {9A1199F0-327A-4952-996B-A4552F0E7C8C}
+
+☆☆☆☆☆ JS使用说明，例子看focusua.js
+  1 声明对象
+    <OBJECT ID="FocusSip" CLASSID="CLSID:15E1E788-3086-4B54-83C0-449EF56CD4EE"></OBJECT>
+  2 调用对象的函数
+    document.all.FocusSip.focusua_aboutbox();
+    document.all.FocusSip.focusua_init();
+    ......
+
+☆☆☆☆☆ FocusSipAtl Released 1.1基本接口说明
+
+  1)  方法 focusua_aboutbox         : 本函数仅供测试, 只返回1
+    HRESULT focusua_aboutbox(
+      [out,retval] long* retStatus);            类型long // 函数返回值retStatus        成功返回1/失败返回1
+
+  11) 方法 focusua_init             : 初始化函数
+    HRESULT focusua_init(
+      [out,retval] long* retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值
+
+  12) 方法 focusua_idestroy         : 销毁函数
+    HRESULT focusua_idestroy(
+      [out,retval] long* retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值
+    
+  13) 方法 focusua_acc_add          : 账户添加函数
+    HRESULT focusua_acc_add(
+      [in] BSTR AuthID,                         类型BSTR // 用户ID    必须输入          (如 990001)
+      [in] BSTR Password,                       类型BSTR // 用户密码  必须输入          (如 123456)
+      [in] BSTR Domain,                         类型BSTR // IP地址    必须输入          (如 192.168.1.201)
+      [in] BSTR Proxy,                          类型BSTR // 代理地址  必须输入          (如 192.168.1.201)
+      [out,retval] long* retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值
+      
+  14)方法 focusua_account_add       : 账户添加函数(详细版)
+    HRESULT focusua_account_add(
+      [in] int  _00accountId,                   类型int  //             默认是 1
+      [in] BSTR _01label,                       类型BSTR // 标签        默认等同用户ID
+      [in] BSTR _02server,                      类型BSTR // 服务器      默认等同IP地址
+      [in] BSTR _03proxy,                       类型BSTR // 代理地址    必须输入        (如 192.168.1.201)
+      [in] BSTR _04username,                    类型BSTR // 用户名      默认等同用户ID
+      [in] BSTR _05domain,                      类型BSTR // IP地址      必须输入        (如 192.168.1.201)
+      [in] int  _06port,                        类型int 
+      [in] BSTR _07authID,                      类型BSTR // 用户ID      必须输入        (如 990001)
+      [in] BSTR _08password,                    类型BSTR // 用户密码     必须输入       (如 123456)
+      [in] int  _09rememberPassword,            类型int  // 是否保存密码 默认是 1
+      [in] BSTR _10displayName,                 类型BSTR // 显示名称     默认等同用户ID
+      [in] BSTR _11voicemailNumber,             类型BSTR //             默认是 ""
+      [in] BSTR _12srtp,                        类型BSTR //             默认是 ""
+      [in] BSTR _13transport,                   类型BSTR //             默认是 ""
+      [in] BSTR _14publicAddr,                  类型BSTR //             默认是 ""
+      [in] int  _15publish,                     类型int  //             默认是 0
+      [in] int  _16ice,                         类型int  //             默认是 0
+      [in] int  _17allowRewrite,                类型int  //             默认是 0
+      [in] int  _18disableSessionTimer,         类型int  //             默认是 0
+      [out] int * pAcc_Index,                   类型int  // 输出值       用户账号ID索引
+      [out,retval] long *retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值
+
+  15) 方法 focusua_make_call             : 呼叫函数
+    HRESULT focusua_make_call(
+      [in]  BSTR Uri,                           类型BSTR // 被叫Uri      必须输入      (如 990002@192.168.1.201 )
+      [in]  int hasVideo,                       类型intR // 是否使用视频  必须输入      1为是, 0为否
+      [out,retval] long *retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值
+
+  16) 方法 focusua_call_make_call        : 呼叫函数函数
+    HRESULT focusua_call_make_call(
+      [in]  BSTR  Uri,                          类型BSTR // 被叫Uri       必须输入     (如 990002@192.168.1.201 )
+      [in]  BSTR  Para,                         类型BSTR // 呼叫参数      默认是 ""     
+      [in]  BSTR  Name,                         类型BSTR // 被叫对方名称  默认是 ""     
+      [in]  int   hasVideo,                     类型intR // 是否使用视频  必须输入      1为是, 0为否
+      [out] BSTR * CallId,                      类型int  // 输出值        输出呼叫ID    
+      [out,retval] long *retStatus);            类型long // 函数返回值retStatus        成功返回0/失败返回非0值

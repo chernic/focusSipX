@@ -1,0 +1,3 @@
+http://blog.chinaunix.net/uid-731376-id-172664.html
+ ATL写的OCX控件，不让IE弹安全提示框 
+ 
