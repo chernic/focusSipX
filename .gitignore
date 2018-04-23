@@ -39,6 +39,7 @@
 *.sws
 *.pdsync
 *.pdsyncu
+*.exp
 
 
 *.bsc
@@ -57,4 +58,8 @@ BuildLog.htm
 
 Debug
 Release
-
+*_CP.H
+*_i.c
+*_i.h
+*_p.c
+*.ocx
