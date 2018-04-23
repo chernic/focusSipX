@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <meta http-equiv="description" content="运用CSS3和CSS滤镜做的精美的登录界面，无用到图片的喔！">
+  <meta http-equiv="author" content="">
+  <meta http-equiv="date" content="">
+  <title>登录</title>
+  <script src="jquery-1.7.min.js"></script>
+  <!-- <link rel="stylesheet" href="style/common/common.css"> -->
+  <style type="text/css">
+  body {
+      margin:0;
+      padding:0;
+      background-color:#E4E8EC;
+  }
+  .wrap {
+      margin:20px auto;
+      width:380px;
+      overflow:hidden;
+  }
+  .loginForm {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2), 0 3px 0 #fff, 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px 0 #fff, 0 7px 0 rgba(0, 0, 0, 0.2);
+      position:absolute;
+      z-index:0;
+      background-color:#FFF;
+      border-radius:4px;
+      /******************************************** 注意这里 = loginForm */
+      height:2000px;
+      width:360px;
+      background: -webkit-gradient(linear, left top, left 24, from(#EEE), color-stop(4%, #FFF), to(#EEE));
+      background: -moz-linear-gradient(top, #EEE, #FFF 1px, #EEE 24px);
+      background: -o-linear-gradient(top, #EEEEEE, #FFFFFF 1px, #EEEEEE 24px);
+  }
+  .loginForm:before {
+      content:'';
+      position:absolute;
+      z-index:-1;
+      border:1px dashed #CCC;
+      top:5px;
+      bottom:5px;
+      left:5px;
+      right:5px;
+      box-shadow: 0 0 0 1px #FFF;
+  }
+  .loginForm h1 {
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+      text-transform:uppercase;
+      text-align:center;
+      color:#666;
+      line-height:3em;
+      margin:16px 0 20px 0;
+      letter-spacing: 4px;
+      font:normal 26px/1 Microsoft YaHei, sans-serif;
+  }
+  fieldset {
+      border:none;
+      padding:10px 10px 0;
+  }
+  fieldset input[type=text] {
+      background:url(style/default/images/user.png) 4px 5px no-repeat;
+  }
+  fieldset input[type=password] {
+      background:url(style/default/images/password.png) 4px 5px no-repeat;
+  }
+  fieldset input[type=text], fieldset input[type=password] {
+      width:90%;
+      line-height:2em;
+      font-size:12px;
+      height:24px;
+      border:none;
+      padding:3px 4px 3px 2.2em;
+      width:300px;
+  }
+  fieldset input[type=button] {
+      text-align:center;
+      padding:2px 20px;
+      line-height:2em;
+      border:1px solid #FF1500;
+      border-radius:3px;
+      background: -webkit-gradient(linear, left top, left 24, from(#FF6900), color-stop(0%, #FF9800), to(#FF6900));
+      background: -moz-linear-gradient(top, #FF6900, #FF9800 0, #FF6900 24px);
+      background:-o-linear-gradient(top, #FF6900, #FF9800 0, #FF6900 24px);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF9800', endColorstr='#FF6900');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF9800', endColorstr='#FF6900')";
+      height:30px;
+      cursor:pointer;
+      letter-spacing: 4px;
+      margin-top:4px;
+      margin-left:10px;
+      color:#000;
+      font-weight:bold;
+  }
+  fieldset input[type=button]:disabled {
+      color:#CCCCCC;
+  }
+  fieldset input[type=button]:hover {
+      background: -webkit-gradient(linear, left top, left 24, from(#FF9800), color-stop(0%, #FF6900), to(#FF9800));
+      background: -moz-linear-gradient(top, #FF9800, #FF6900 0, #FF9800 24px);
+      background:-o-linear-gradient(top, #FF6900, #FF6900 0, #FF9800 24px);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF6900', endColorstr='#FF9800');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF6900', endColorstr='#FF9800')";
+  }
+  .inputWrap {
+      background: -webkit-gradient(linear, left top, left 24, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+      background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 24px);
+      background: -o-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 24px);
+      border-radius:3px;
+      border:1px solid #CCC;
+      margin:10px 10px 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#FFFFFF');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#FFFFFF')";
+  }
+  fieldset input[type=checkbox] {
+      margin-left:10px;
+      vertical-align:middle;
+  }
+  fieldset a {
+      color:blue;
+      font-size:12px;
+      margin:6px 0 0 10px;
+      text-decoration:none;
+  }
+  fieldset a:hover {
+      text-decoration:underline;
+  }
+  fieldset span {
+      font-size:12px;
+  }
+  .wrap2 {
+      /******************************************** 注意这里 = loginForm+50 */
+      margin:2050px auto;
+      width:380px;
+      overflow:hidden;
+  }
+  .dialForm {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2), 0 3px 0 #fff, 0 4px 0 rgba(0, 0, 0, 0.2), 0 6px 0 #fff, 0 7px 0 rgba(0, 0, 0, 0.2);
+      position:absolute;
+      z-index:0;
+      background-color:#FFF;
+      border-radius:4px;
+      height:750px;
+      width:360px;
+      background: -webkit-gradient(linear, left top, left 24, from(#EEE), color-stop(4%, #FFF), to(#EEE));
+      background: -moz-linear-gradient(top, #EEE, #FFF 1px, #EEE 24px);
+      background: -o-linear-gradient(top, #EEEEEE, #FFFFFF 1px, #EEEEEE 24px);
+  }
+  .dialForm:before {
+      content:'';
+      position:absolute;
+      z-index:-1;
+      border:1px dashed #CCC;
+      top:5px;
+      bottom:5px;
+      left:5px;
+      right:5px;
+      box-shadow: 0 0 0 1px #FFF;
+  }
+  .dialForm h1 {
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+      text-transform:uppercase;
+      text-align:center;
+      color:#666;
+      line-height:3em;
+      margin:16px 0 20px 0;
+      letter-spacing: 4px;
+      font:normal 26px/1 Microsoft YaHei, sans-serif;
+  }
+  </style>
+  <!--为了让IE支持HTML5元素，做如下操作：--> 
+  <!--[if IE]>
+  <script type="text/javascript">
+  document.createElement("section");
+  document.createElement("header");
+  document.createElement("footer");
+  </script>
+  <![endif]-->
+  </head>
+  <body>
+      <div class="FocusSipAtl.dll object" >
+        <OBJECT ID="CompReg"             CLASSID="194F9248-F190-4BF8-ADAD-6ED35F0B919D"></OBJECT>
+        <OBJECT ID="IComponentRegistrar" CLASSID="CLSID:A817E7A2-43FA-11D0-9E44-00AA00B6770A"></OBJECT>
+        <OBJECT ID="FocusSip"            CLASSID="CLSID:15E1E788-3086-4B54-83C0-449EF56CD4EE"></OBJECT>
+        <OBJECT ID="IFocusSip"           CLASSID="CLSID:9A1199F0-327A-4952-996B-A4552F0E7C8C"></OBJECT>
+      </div>
+      <div class="wrap">
+        <form action="#" method="post">
+          <section class="loginForm">
+            <header>
+              <h1>登录</h1>
+            </header>
+            <div class="loginForm_content">
+              <fieldset>
+                <div align="center">
+                    <input type="button" value="初始化"      onclick="app_construct()">
+                    <input type="button" value="反初始化"    onclick="app_destroy()">
+                </div>
+
+              </fieldset>
+              <fieldset>
+                <div class="inputWrap">
+                  <input type="text"     id="UserID"  value="990003"  placeholder="用户帐号 (UserID)" autofocus required>
+                </div>
+                <div class="inputWrap">
+                  <input type="password" id="Password" value="123456"  placeholder="密码(Password)" required>
+                </div>
+                <div class="inputWrap">
+                  <input type="text"     id="Domain"   value="192.168.1.250"  placeholder="服务器域名(Domain)" required>
+                </div>
+              </fieldset>
+              
+              <fieldset>
+                  <p align="center" id="login_result">测试</p>
+              </fieldset>
+              
+              <fieldset>
+                <!-- <div class="inputWrap"> -->
+                  <!-- <span>传入的 ACC_ID</span> -->
+                  <!-- <input type="text" id="_00accountId" value="0"> -->
+                <!-- </div> -->
+                <div align="center">
+                    <input type="button" value="登录"               onclick="acc_add()">
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="inputWrap">
+                  <span>返回的账户 ACC_ID: (大于70000为错误码)</span>
+                  <p align="center"  style= 'font-size: 40;' id="acc_id_return">未返回</p>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div align="center">
+                    <input align="center" style= 'font-size: 40;'type="button" value="登出"               onclick="acc_del()">
+                </div>
+                <div class="inputWrap">
+                  <span>要登出的账户 ACC_ID</span>
+                  <input type="text" id="acc_id_2_del"  value="0" >
+                </div>
+                <div class="inputWrap">
+                  <span>登出返回</span>
+                  <p align="center" id="acc_del_return">未返回</p>
+                </div>
+              </fieldset>
+
+              <fieldset >
+                <div align="left">
+                    <input type="button" value="001 测试ocx"            onclick="check_if_exited()">
+                    <input type="button" value="002 app_construct"      onclick="app_construct()">
+                    <input type="button" value="003 app_destroy"        onclick="app_destroy()">
+                    <input type="button" value="007 app_default_config" onclick="app_default_config()">
+                    <input type="button" value="008 app_test_config   " onclick="app_test_config()">
+                </div>
+              </fieldset>
+              
+              
+              <span>-</span> 
+              <HR align=center width=300 color=#987cb9 SIZE=1>
+              <span>-</span> 
+              
+              
+              <fieldset>
+                <div align="left">
+                    <input type="button" value="101 acc_get_count"          onclick="acc_get_count()">
+                </div>
+                <div class="inputWrap">
+                <span>返回的Count result: </span>
+                    <p align="center" id="acc_get_count_result">-1</p>
+                </div>
+
+
+                <div align="left">
+                    <input type="button" value="102 acc_get_info(bad)"      onclick="acc_get_info()">
+                </div>
+                
+                <div class="inputWrap">
+                    <span>要设置online_status 的状态为 (1为开启): </span>
+                    <input type="text" id="online_status2set"  value="1" >
+                </div>
+                <div align="left">
+                    <input type="button" value="105 acc_set_online_status"  onclick="acc_set_online_status()">
+                </div>
+
+
+                <div class="inputWrap">
+                    <span>要设置registration (1为注册): </span>
+                    <input type="text" id="registration2set"  value="1" >
+                </div>
+                <div align="left">
+                    <input type="button" value="106 acc_set_registration"   onclick="acc_set_registration()">
+                </div>
+              </fieldset>
+              
+              <span>-</span> 
+              <HR align=center width=300 color=#987cb9 SIZE=1>
+              <span>-</span> 
+              
+              <fieldset>
+                <div align="left">
+                    <div class="inputWrap">
+                    <span>要操作的Call ID:</span> 
+                      <input type="text" id="call_make_call_id_show"  value="-1" >
+                    </div>
+                    <input type="button" value="201 call_get_max_count"    onclick="call_get_max_count()">
+                    <input type="button" value="202 call_get_count"        onclick="call_get_count()">
+                    <input type="button" value="203 call_is_active"        onclick="call_is_active()">
+                    <input type="button" value="204 call_has_media"        onclick="call_has_media()">
+                    <input type="button" value="205 call_get_info(bad)"    onclick="call_get_info()">
+                </div>
+                <div align="left">
+                    <input type="button" value="211 call_make_call_short" onclick="call_make_call_short()">
+                    <input type="button" value="212 call_make_call"       onclick="call_make_call()">
+                    
+                    
+                    <div class="inputWrap">
+                        <span>呼叫状态值</span> 
+                      <input type="text" id="call_answer_status_code"     value="180" >
+                    </div>
+                    <input type="button" value="213 call_answer"          onclick="call_answer()">
+                    
+                    <div class="inputWrap">
+                        <span>挂断状态值</span> 
+                      <input type="text" id="call_hangup_code"            value="0" >
+                    </div>
+                    <input type="button" value="214 call_hangup"          onclick="call_hangup()">
+                    
+                    <input type="button" value="215 call_hangup_all"      onclick="call_hangup_all()">
+                    
+                    
+                    <input type="button" value="216 call_set_hold"        onclick="call_set_hold()">
+                    
+                    
+                    <input type="button" value="217 call_release_hold"    onclick="call_release_hold()">
+                    
+                    
+                </div>
+                
+              </fieldset>
+            </div>
+          </section>
+        </form>
+      </div>
+      <div class="wrap2">
+        <form action="#" method="post">
+          <section class="dialForm">
+            <header>
+              <h1>拨号</h1>
+            </header>
+              <fieldset>
+                <div class="inputWrap">
+                  <input type="text" id="dial_text" value="3000" placeholder="对方号码 (DialedNumber)" autofocus required>
+                </div>
+              </fieldset>
+              <fieldset>
+              <table style="border-bottom:0;">
+                  <tbody><tr><td><div></div></td></tr>
+                      <tr><td><div><input type="button" value="  1  " onclick="type1()"/></div></td>
+                          <td><div><input type="button" value="  2  " onclick="type2()"/></div></td>
+                          <td><div><input type="button" value="  3  " onclick="type3()"/></div></td>
+                      </tr>
+                      <tr><td><div><input type="button" value="  4  " onclick="type4()"/></div></td>
+                          <td><div><input type="button" value="  5  " onclick="type5()"/></div></td>
+                          <td><div><input type="button" value="  6  " onclick="type6()"/></div></td>
+                      </tr>
+                      <tr><td><div><input type="button" value="  7  " onclick="type7()"/></div></td>
+                          <td><div><input type="button" value="  8  " onclick="type8()"/></div></td>
+                          <td><div><input type="button" value="  9  " onclick="type9()"/></div></td>
+                      </tr>
+                      <tr><td><div><input type="button" value="  *  " onclick="typestar()"/></div></td>
+                          <td><div><input type="button" value="  0  " onclick="type0()"/></div></td>
+                          <td><div><input type="button" value="  #  " onclick="type3sharp()"/></div></td>
+                      </tr>
+                      <tr><td><div><input type="button" value="  <  " onclick="my_delete()"/></div></td>
+                          <td><div><input type="button" value="  +  " onclick="my_add()"/></div></td>
+                          <td><div><input type="button" value="Clean" onclick="my_clear()"/></div></td>
+                      </tr>
+                   </tbody>
+              </table>
+              <input type="checkbox" id="hasVideo" checked="checked">
+              <span>是否带视频</span> 
+              <input type="button" value="        Call-Short         " onclick="call_make_call_short()"/>
+              <input type="button" value="           Call            " onclick="call_make_call()"/>
+              <div class="inputWrap">
+                  <span>返回的Call ID:</span> 
+                  <p align="center" id="call_make_call_id">-1</p>
+              </div>
+              <input type="button" value="   Call(摄像头视频左上角)   " onclick="vid_win_set_overlay_mode(1)"/>
+              <input type="button" value="   Call(摄像头视频右上角)   " onclick="vid_win_set_overlay_mode(2)"/>
+              <input type="button" value="   Call(摄像头视频左下角)   " onclick="vid_win_set_overlay_mode(3)"/>
+              <input type="button" value="   Call(摄像头视频右下角)   " onclick="vid_win_set_overlay_mode(4)"/>
+              
+              <div class="inputWrap">
+                <span>屏幕占比</span> 
+                <input type="text" id="VedioWinSize"     value="0.2" >
+              </div>
+              <input type="button" value="302 vid_win_resize         " onclick="vid_win_resize()"/>
+
+              </fieldset>
+              <fieldset>
+                  <p align="center" id="dial_result"></p>
+              </fieldset>
+          </section>
+        </form>
+      </div>
+      <script language="javascript" src="FocusSipAtl.js"></script>
+  </body>
+</html>

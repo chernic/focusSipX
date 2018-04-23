@@ -1,0 +1,26 @@
+HKCR
+{
+    activex_video_agent.App.1 = s 'App Class'
+    {
+        CLSID = s '{F89DA516-42E5-43A0-8EF7-A960BA386CAB}'
+    }
+    activex_video_agent.App = s 'App Class'
+    {
+        CLSID = s '{F89DA516-42E5-43A0-8EF7-A960BA386CAB}'
+        CurVer = s 'activex_video_agent.App.1'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {F89DA516-42E5-43A0-8EF7-A960BA386CAB} = s 'App Class'
+        {
+            ProgID = s 'activex_video_agent.App.1'
+            VersionIndependentProgID = s 'activex_video_agent.App'
+            ForceRemove 'Programmable'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+            'TypeLib' = s '{11E70413-8434-41B6-A5B6-F7DF79FEFC1A}'
+        }
+    }
+}

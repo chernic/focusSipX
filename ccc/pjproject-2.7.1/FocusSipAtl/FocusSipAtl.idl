@@ -1,0 +1,349 @@
+// FocusSipAtl.idl : FocusSipAtl 的 IDL 源
+// 
+
+// 
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(FocusSipAtl.tlb)和封送处理代码。
+
+#include "olectl.h"
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+import "focusua_structs.idl";
+
+// idl 编译器会将 以下变量翻译成C语言
+// 并生成在文件FocusSipAtl_i.h 
+const USHORT ID_OnAboutBox             = 999;
+const USHORT ID_OnTestJsonString       = 100;
+
+const USHORT ID_OnCallState            = 1;
+const USHORT ID_OnJsonCallState        = 101;
+
+const USHORT ID_OnIncomingCall         = 2;
+const USHORT ID_OnJsonIncomingCall     = 102;
+
+const USHORT ID_OnTsxState             = 3;
+const USHORT ID_OnJsonTsxState         = 103;
+
+const USHORT ID_OnMediaState           = 4;
+const USHORT ID_OnJsonMediaState       = 104;
+
+const USHORT ID_OnStreamCreated2       = 7;
+const USHORT ID_OnJsonStreamCreated2   = 107;
+
+const USHORT ID_OnStreamDestroyed      = 8;
+const USHORT ID_OnJsonStreamDestroyed  = 108;
+
+const USHORT ID_OnRegState2            = 21;
+const USHORT ID_OnJsonRegState2        = 121;
+
+const USHORT ID_OnBuddyState           = 24;
+const USHORT ID_OnJsonBuddyState       = 124;
+
+[ // ABChernic : IComponentRegistrar
+  object,
+  uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+  dual,
+  helpstring("IComponentRegistrar 接口"),
+  pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch{
+  [id(1)] HRESULT Attach([in] BSTR bstrPath);
+  [id(2)] HRESULT RegisterAll();
+  [id(3)] HRESULT UnregisterAll();
+  [id(4)] HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+  [id(5)] HRESULT RegisterComponent([in] BSTR bstrCLSID);
+  [id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[ // ABChernic : IFocusSip
+  object,
+  uuid(9A1199F0-327A-4952-996B-A4552F0E7C8C),
+  dual,
+  nonextensible,
+  helpstring("IFocusSip 接口"),
+  pointer_default(unique)
+]
+interface IFocusSip : IDispatch{
+  [id(1),  helpstring("method aboutbox")]           HRESULT aboutbox (
+      [out,retval]      Fs__Str                 *ret);
+
+  [id(2),  helpstring("method app_construct")]      HRESULT app_construct (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  [id(3),  helpstring("method app_destroy")]        HRESULT app_destroy (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  // {
+  [id(4),  helpstring("method app_create")]         HRESULT app_create (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  [id(5),  helpstring("method app_init")]           HRESULT app_init (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  [id(6),  helpstring("method app_start")]          HRESULT app_start (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  [id(7),  helpstring("method app_default_config")] HRESULT app_default_config (
+      [out,retval]      Fs_Stat                 *retStatus);
+
+  [id(8),  helpstring("method app_test_config")]    HRESULT app_test_config (
+      [out,retval]      Fs_Stat                 *retStatus);
+  // }
+
+  [id(101), helpstring("method acc_get_count")]     HRESULT acc_get_count(
+    [out,retval]        Fs_Numb                 *pCount);
+
+  [id(102), helpstring("method acc_get_info")]      HRESULT acc_get_info(
+    [in]                Fs_Numb                 acc_id,
+    [out]               Focusip_Acc_Info        *pInfo,
+    [out,retval]        Fs_Stat                 *retStatus);
+
+  [id(103), helpstring("method acc_add_short")]     HRESULT acc_add_short(
+    [in]                Focusip_Acc_Config      *pconfig,
+    [out,retval]        Fs_Stat                 *retStatus);
+
+  [id(104), helpstring("method acc_add")]           HRESULT acc_add(
+    //[in] int  _00accountId,
+    [in]                Fs__Str                 _01label,
+    [in]                Fs__Str                 _02server,
+    [in]                Fs__Str                 _03proxy,
+    [in]                Fs__Str                 _04username,
+    [in]                Fs__Str                 _05domain,
+    [in]                Fs_Numb                 _06port,
+    [in]                Fs__Str                 _07authID,
+    [in]                Fs__Str                 _08password,
+    [in]                Fs_Numb                 _09rememberPassword,
+    [in]                Fs__Str                 _10displayName,
+    [in]                Fs__Str                 _11voicemailNumber,
+    [in]                Fs__Str                 _12srtp,
+    [in]                Fs__Str                 _13transport,
+    [in]                Fs__Str                 _14publicAddr,
+    [in]                Fs_Numb                 _15publish,
+    [in]                Fs_Numb                 _16ice,
+    [in]                Fs_Numb                 _17allowRewrite,
+    [in]                Fs_Numb                 _18disableSessionTimer,
+    [out]               Fs_Stat                 *retStatus,
+    [out, retval]       Fs_Numb                 *pAcc_Index);
+
+  [id(105), helpstring("method acc_set_online_status")] HRESULT acc_set_online_status(
+    [in]                Fs_Numb                 acc_id,
+    [in]                Fs_Numb                 is_online,
+    [out,retval]        Fs_Stat                 *retStatus);
+
+  [id(106), helpstring("method acc_set_registration")] HRESULT acc_set_registration(
+    [in]                Fs_Numb                 acc_id,
+    [in]                Fs_Numb                 reg_active,
+    [out,retval]        Fs_Stat                 *retStatus);
+
+  [id(107), helpstring("method acc_del")] HRESULT acc_del(
+    [in]                Fs_Numb                 acc_id,
+    [out,retval]        Fs_Stat                 *retStatus);
+
+    //// 2222222-2222222-2222222
+    [id(201), helpstring("method call_get_max_count")] HRESULT call_get_max_count(
+        [out,retval]    Fs_Numb                 *retCount);
+
+    [id(202), helpstring("method call_get_count")] HRESULT call_get_count(
+        [out,retval]    Fs_Numb                 *retCount);
+
+    //(via pjsua OK)
+    [id(203), helpstring("method call_is_active")] HRESULT call_is_active(
+        [in]            Fs_Numb                 callIndex, 
+        [out,retval]    Fs_Bool                 *pRet);
+
+    //(via pjsua OK)
+    [id(204), helpstring("method call_has_media")] HRESULT call_has_media(
+        [in]            Fs_Numb                 callIndex,
+        [out,retval]    Fs_Bool                 *pRet);
+
+    [id(205), helpstring("method call_get_info")] HRESULT call_get_info(
+        [in]            Fs_Numb                 callIndex,
+        [out]           Focusip_Call_Info       *pInfo,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+
+    [id(211), helpstring("method call_make_call_short")] HRESULT call_make_call_short(
+        [in]            Fs__Str                 Uri,
+        [in]            Fs_Numb                 hasVideo,
+        [out,retval]    Fs_Numb                 *RetCallID);
+
+    [id(212), helpstring("method call_make_call")] HRESULT call_make_call(
+        [in]            Fs__Str                 _21callId,
+        [in]            Fs__Str                 _22numb,
+        [in]            Fs__Str                 _23number,
+        [in]            Fs__Str                 _24Para,
+        [in]            Fs__Str                 _25name,
+        [in]            Fs_Numb                 hasVideo,
+        [out,retval]    Fs_Numb                 *RetCallID);
+
+    [id(213), helpstring("method call_answer")] HRESULT call_answer(
+        [in]            Fs_Numb                 callIndex,
+        [in]            Fs_Numb                 status_code,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+
+    [id(214), helpstring("method call_hangup")] HRESULT call_hangup(
+        [in]            Fs_Numb                 callIndex,
+        [in]            Fs_Numb                 code,
+        [in]            Fs__Str                 reason,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+    [id(215), helpstring("method call_hangup_all")] HRESULT call_hangup_all();
+
+    [id(216), helpstring("method call_set_hold")] HRESULT call_set_hold(
+        [in]            Fs_Numb                 callIndex,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+    [id(217), helpstring("method call_release_hold")] HRESULT call_release_hold(
+        [in]            Fs_Numb                 callIndex,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+/*
+    [id(218), helpstring("method call_xfer")] HRESULT call_xfer(
+        [in]            Fs_Numb                 callIndex,
+        [in,string]     Pj_String               dst_uri,
+        [out,retval]    Fs_Stat                 *retStatus);
+*/
+
+    //// 3333333-3333333-3333333
+    [id(301), helpstring("method vid_win_set_overlay_mode")] HRESULT vid_win_set_overlay_mode(
+        [in]            Fs_Numb                 mode,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+    [id(302), helpstring("method vid_win_resize")] HRESULT vid_win_resize(
+        [in]            Fs_Doub                 present,
+        [out,retval]    Fs_Stat                 *retStatus);
+
+};
+
+[ // ABChernic : FocusSipAtlLib
+  uuid(E376B48B-83F4-4739-A258-993BD0BD9057),
+  version(1.0),
+  helpstring("FocusSipAtlLib 1.0 类型库"),
+  custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{194F9248-F190-4BF8-ADAD-6ED35F0B919D}")
+]
+library FocusSipAtlLib{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+    // 04 SIP URI(资源标志符)
+    struct Focusip_Sip_Uri;
+    // 05 认证信息
+    struct Focusip_Cred_Info;
+    // 06 账户信息
+    struct Focusip_Acc_Config;
+    // 07 通话信息
+    struct Focusip_Call_Info;
+    // 08 邻席信息
+    struct Focusip_Buddy_Info;
+    // 09 端口信息
+    struct Focusip_Conf_Port_Info;
+    // 10 注册信息
+    struct Focusip_Reg_Info;
+    
+    //// 11 信息
+    // struct Focusip_TI_Info;
+    
+    // 20 账户信息
+    struct Focusip_Acc_Info;
+    // 21 全局信息
+    struct Focusip_Config;
+
+    //Chernic: COM注册 类
+    [
+        uuid(194F9248-F190-4BF8-ADAD-6ED35F0B919D),
+        helpstring("ComponentRegistrar Class")
+    ]
+    coclass CompReg
+    {
+        [default] interface IComponentRegistrar;
+    };
+
+    //Chernic: 回调函数(事件) 接口
+    //Chernic: 需要在创建FocusSip类时,在options那里选上connection point
+    //Chernic: 选择类视图, 添加方法
+    [
+      uuid(DC91CBCE-4B9E-4369-80B9-39341EEFD814),
+      helpstring("_IFocusSipEvents Interface")
+    ]
+    dispinterface _IFocusSipEvents
+    {
+        properties:
+        methods:
+
+            // 999
+            [id(ID_OnAboutBox), helpstring("method OnAboutBox")]                        void OnAboutBox(
+                [in] FLOAT parmA,      [in] FLOAT parmB);
+            // 100
+            [id(ID_OnTestJsonString), helpstring("method OnTestJsonString")]            void OnTestJsonString(
+                [in] BSTR json);
+
+
+            // 001
+            [id(ID_OnCallState), helpstring("method OnCallState")]                      void OnCallState(
+                [in] INT callIndex,    [in] Focusip_Call_Info*  cInfo);
+            // 101
+            [id(ID_OnJsonCallState), helpstring("method OnJsonCallState")]              void OnJsonCallState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 002  
+            [id(ID_OnIncomingCall), helpstring("method OnIncomingCall")]                void OnIncomingCall(
+                [in] INT callIndex);
+            // 102
+            [id(ID_OnJsonIncomingCall), helpstring("method OnJsonIncomingCall")]        void OnJsonIncomingCall(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 003
+            [id(ID_OnTsxState), helpstring("method OnCallTsxState")]                    void OnCallTsxState(
+                [in] INT callIndex);
+            // 103
+            [id(ID_OnJsonTsxState), helpstring("method OnJsonTsxState")]                void OnJsonTsxState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 004
+            [id(ID_OnMediaState), helpstring("method OnMediaState")]                    void OnMediaState(
+                [in] INT callIndex);
+            // 104
+            [id(ID_OnJsonMediaState), helpstring("method OnJsonMediaState")]            void OnJsonMediaState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 021
+            [id(ID_OnRegState2), helpstring("method OnRegState2")]                      void OnRegState2(
+                [in] INT accIndex,      [in] Focusip_Reg_Info*   rInfo);
+            // 121
+            [id(ID_OnJsonRegState2), helpstring("method OnJsonRegState2")]              void OnJsonRegState2(
+                [in] INT accIndex,      [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 024
+            [id(ID_OnBuddyState), helpstring("method OnBuddyState")]                    void OnBuddyState(
+                [in] INT buddyIndex,    [in] Focusip_Buddy_Info* bInfo);
+            // 124
+            [id(ID_OnJsonBuddyState), helpstring("method OnJsonBuddyState")]            void OnJsonBuddyState(
+                [in] INT buddyIndex,    [in] BSTR jsonData, [in] INT jsonSize);
+
+            /*
+            [id(ID_OnIncomingPager), helpstring("method OnIncomingPager")]              void OnIncomingPager(
+                [in] INT callIndex,  [in] BSTR fromUri, [in] BSTR toURI, [in] BSTR pagerText);
+            */
+    };
+
+    // ABChernic : FocusSip 类
+    [
+        uuid(15E1E788-3086-4B54-83C0-449EF56CD4EE),
+        control,
+        helpstring("FocusSip Class")
+    ]
+    coclass FocusSip
+    {
+        [default] interface IFocusSip;
+        [default, source] dispinterface _IFocusSipEvents;
+    };
+
+
+};

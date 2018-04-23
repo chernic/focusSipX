@@ -1,0 +1,18 @@
+// glog_atl_test.idl : glog_atl_test 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(glog_atl_test.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(77E9E342-F953-4E77-BC3F-2A7E41F9C0B8),
+	version(1.0),
+	helpstring("glog_atl_test 1.0 类型库")
+]
+library glog_atl_testLib
+{
+	importlib("stdole2.tlb");
+};

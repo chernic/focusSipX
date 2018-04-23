@@ -1,0 +1,209 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef double Fs_Doub; // double
+typedef int    Fs_Bool; // Boolean
+typedef int    Fs_Numb; // Number
+typedef long   Fs_Long; // Long
+typedef long   Fs_Stat; // Status
+typedef BSTR   Fs__Str; // String
+typedef BSTR   Fs__URI; // Universal Resource Identifier 资源标志符
+
+///////////////////////////////////////////////////////////////////
+// 1 URI上下文
+typedef enum Focusip_Uri_Context{
+    FOCUSIPX_URI_IN_REQ_URI,
+    FOCUSIPX_URI_IN_FROMTO_HDR,
+    FOCUSIPX_URI_IN_CONTACT_HDR,
+    FOCUSIPX_URI_IN_ROUTING_HDR,
+    FOCUSIPX_URI_IN_OTHER
+} Focusip_Uri_Context;
+// 2 通话状态
+typedef enum Focusip_Call_State{
+    PJSUA_CALL_STATE_NULL,
+    PJSUA_CALL_STATE_CALLING,
+    PJSUA_CALL_STATE_INCOMING,
+    PJSUA_CALL_STATE_EARLY,
+    PJSUA_CALL_STATE_CONNECTING,
+    PJSUA_CALL_STATE_CONFIRMED,
+    PJSUA_CALL_STATE_DISCONNECTED,
+}Focusip_Call_State;
+// 3 邻席状态
+typedef enum Focusip_Buddy_State{
+    PJSUA_BUDDY_STATE_UNKNOWN,
+    PJSUA_BUDDY_STATE_ONLINE,
+    PJSUA_BUDDY_STATE_OFFLINE,
+}Focusip_Buddy_State;
+
+
+///////////////////////////////////////////////////////////////////
+[ // 04 SIP URI(资源标志符)
+    uuid(04BA8132-E099-44e6-A668-E1B526517A9D),
+    version(1.1),
+    helpstring("FOCUSIP SIP URI"),
+]
+typedef struct Focusip_Sip_Uri{
+    Fs__Str   display;
+    Fs__Str   user;
+    Fs__Str   passwd;
+    Fs__Str   host;
+    Fs_Numb   port;
+    Fs__Str   param_user;
+    Fs__Str   param_method;
+    Fs__Str   param_transport;
+    Fs_Numb   param_ttl;
+    Fs_Numb   param_lr;
+    Fs__Str   param_maddr;
+    Fs__Str   param_other;
+    Fs__Str   param_header;
+}Focusip_Sip_Uri;          //
+[ // 05 认证信息`
+    uuid(05163613-C3DB-4a72-B98A-E4BCC56DB163),
+    version(1.1),
+    helpstring("FOCUSIP credential information"),
+]
+typedef struct Focusip_Cred_Info{
+    Fs__Str   realm;
+    Fs__Str   scheme;
+    Fs__Str   username;
+    Fs_Numb   hashed;
+    Fs__Str   data;
+}Focusip_Cred_Info;
+[ // 6 账户信息
+    uuid(062143D1-58A4-4044-8A25-C13D460D4D5D),
+    version(1.0),
+    helpstring("PJSUA Account Information"),
+]
+typedef struct Focusip_Acc_Info{
+    Fs_Numb                             index;
+    Fs__URI                             acc_uri;
+    Fs_Bool                             has_registration;
+    Fs_Numb                             expires;
+    Fs_Numb                             status_code;
+    Fs__Str                             status_text;
+    Fs_Bool                             online_status;
+}Focusip_Acc_Info;
+[ // 7 通话信息 A4DCBC38-A768-4682-A54F-3A273892BC4F
+    uuid(07076348-B31B-4844-8BF1-FC8DEF3BC121),
+    version(1.0),
+    helpstring("PJSUA Call Information"),
+]
+typedef struct Focusip_Call_Info{
+    Fs_Numb     index;
+    Fs_Bool     active;
+    Fs_Bool     is_uac;
+    Fs__Str     local_info;
+    Fs__Str     remote_info;
+    Fs_Numb     state;
+    Fs__Str     state_text;
+    Fs_Numb     connect_duration;
+    Fs_Numb     total_duration;
+    Fs_Numb     last_status;
+    Fs__Str     last_status_text;
+    Fs_Bool     has_media;
+    Fs_Numb     conf_slot;
+}Focusip_Call_Info;
+[ // 8 邻席信息
+    uuid(08CC26A6-29F4-4006-B906-D3F0C115E487),
+    version(1.0),
+    helpstring("PJSUA Buddy Information"),
+]
+typedef struct Focusip_Buddy_Info{
+    Fs_Numb     index;                  // F01 标识
+    Fs__Str     number;                 // F02 电话号码
+    Fs__Str     name;                   // F02 名称
+    Fs__Str     host;                   // F03 服务器
+    Fs_Numb     port;                   // F04 端口号
+    Fs__URI     uri;                    // F05 URI
+	Fs__Str	    contact;                // F07 联系人
+
+    Fs_Numb     status;                 // F08 在线状态
+    Fs__Str     status_text;            // F09 状态描述
+
+    Fs_Bool     monitor;                // F10 是否监控
+	Fs_Bool	    presence;	            // F11 是否出席
+	Fs_Bool	    directory;				// F12 是否路径
+	Fs_Bool		ringing;				// F13 是否响铃	
+	Fs_Bool		candidate;				// F14 是否新增
+}Focusip_Buddy_Info;
+[ // 9 端口信息
+    uuid(096B030B-EB36-4cd8-A2D9-FA3C03267FF2),
+    version(1.0),
+    helpstring("PJSUA Conference Port Information"),
+]
+typedef struct Focusip_Conf_Port_Info{
+    Fs_Numb                             slot_id;
+    Fs__Str                             name;
+    Fs_Numb                             clock_rate;
+    Fs_Numb                             channel_count;
+    Fs_Numb                             samples_per_frame;
+    Fs_Numb                             bits_per_sample;
+    SAFEARRAY(int)  listeners;
+}Focusip_Conf_Port_Info;
+[ // 10 注册信息
+    uuid(10EB7884-24E1-4768-AF24-528CBB905E1C),
+    version(1.0),
+    helpstring("PJSUA Registration Information"),
+]
+typedef struct Focusip_Reg_Info{
+    Fs_Numb index;
+}Focusip_Reg_Info;
+/*
+[ // 11 输入信息
+    uuid(11908C68-BA3B-4e04-87FA-D1DF6B8DA88E),
+    version(1.0),
+    helpstring("PJSUA TypingIndication Information"),
+]
+typedef struct Focusip_TI_Info{
+    Fs_Numb index;
+}Focusip_TI_Info;
+*/
+
+[ // 20 账户设置`
+    uuid(20390D89-4081-432c-BEEA-D22A8CDB1958),
+    version(1.0),
+    helpstring("PJSUA Account configuration"),
+]
+typedef struct Focusip_Acc_Config{
+    Fs__URI                             acc_uri;
+    Fs__URI                             reg_uri;
+    Fs__URI                             contact_uri;
+    Fs__URI                             proxy_uri;
+    Fs_Numb                             reg_timeout;
+    SAFEARRAY(Focusip_Cred_Info)  cred_info;
+}Focusip_Acc_Config;
+[ // 21 全局设置
+    uuid(210EF560-3388-4855-AE15-F2824B0FFF28),
+    version(1.0),
+    helpstring("PJSUA configuration"),
+]
+typedef struct Focusip_Config{
+    Fs_Numb                             udp_port;
+    Fs__Str                             sip_host;
+    Fs_Numb                             sip_port;
+    Fs_Numb                             rtp_port;
+    Fs_Numb                             msg_logging;
+    Fs_Numb                             max_calls;
+    Fs_Numb                             conf_ports;
+    Fs_Numb                             thread_cnt;
+    Fs__Str                             stun_srv1;
+    Fs_Numb                             stun_port1;
+    Fs__Str                             stun_srv2;
+    Fs_Numb                             stun_port2;
+    Fs_Numb                             snd_player_id;
+    Fs_Numb                             snd_capture_id;
+    Fs_Numb                             clock_rate;
+    Fs_Bool                             null_audio;
+    Fs_Numb                             quality;
+    Fs_Numb                             complexity;
+    SAFEARRAY(Fs__Str  )                codec_arg;
+    Fs_Numb                             auto_answer;
+    Fs_Numb                             uas_refresh;
+    Fs__Str                             outbound_proxy;
+    SAFEARRAY(Focusip_Acc_Config)       acc_config;
+    Fs_Numb                             log_level;
+    Fs_Numb                             app_log_level;
+    Fs_Long                             log_decor;
+    Fs__Str                             log_filename;
+    SAFEARRAY(Fs__Str  )                buddy_uri;
+}Focusip_Config;

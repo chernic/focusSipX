@@ -1,0 +1,44 @@
+
+
+# libpjproject
+    - 对象文件名     $(IntDir)\
+        - libpjproject.obj
+    - XML文档文件名  $(IntDir)\
+    - 浏览文件       $(IntDir)
+
+    
+    - 生成日志文件   $(OutDir)\BuildLog.htm
+        - BuildLog.htm
+    - 程序数据库文件 $(OutDir)\vc90.pdb
+        - vc90.idb
+        - vc90.pdb
+
+# activex_video_agent
+    - 对象文件名     $(IntDir)\
+        - activex_video_agent.obj
+    - XML文档文件名  $(IntDir)\
+    - 浏览文件       $(IntDir)
+    
+    - 生成日志文件   $(OutDir)\BuildLog.htm
+        - BuildLog.htm
+    - 程序数据库文件 $(OutDir)\vc90.pdb
+        - vc90.idb
+        - vc90.pdb
+        - activex_video_agent.pch
+        
+# FocusSipAtl
+    - 对象文件名     $(IntDir)\
+        - FocusSipAtl.obj
+    - XML文档文件名  $(IntDir)\
+    - 浏览文件       $(IntDir)
+    
+    - 生成日志文件   $(OutDir)\BuildLog.htm
+        - BuildLog.htm
+    - 程序数据库文件 $(OutDir)\vc90.pdb
+        - vc90.idb
+        - vc90.pdb
+        - FocusSipAtl.pch
+
+
+
+

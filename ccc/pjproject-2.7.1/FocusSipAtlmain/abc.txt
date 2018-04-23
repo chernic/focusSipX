@@ -1,0 +1,48 @@
+11:43:26.949 sip_endpoint.c  .Module "mod-pjsua-log" registered
+11:43:26.951 sip_endpoint.c  .Module "mod-tsx-layer" registered
+11:43:26.966 sip_endpoint.c  .Module "mod-stateful-util" registered
+11:43:26.968 sip_endpoint.c  .Module "mod-ua" registered
+11:43:26.970 sip_endpoint.c  .Module "mod-100rel" registered
+11:43:26.971 sip_endpoint.c  .Module "mod-pjsua" registered
+11:43:26.973 sip_endpoint.c  .Module "mod-invite" registered
+11:43:27.648     wmme_dev.c  ..WMME found 3 devices:
+11:43:27.650     wmme_dev.c  .. dev_id 0: Wave mapper  (in=2, out=2)
+11:43:27.658     wmme_dev.c  .. dev_id 1: Âó¿Ë·ç (Realtek High Definition  (in=2, out=0)
+11:43:27.661     wmme_dev.c  .. dev_id 2: ÑïÉùÆ÷ (Realtek High Definition  (in=0, out=2)
+11:43:27.669     wmme_dev.c  ..WMME initialized
+11:43:27.674          pjlib  ..select() I/O Queue created (03E75D2C)
+11:43:27.677   conference.c  ..Creating conference bridge with 254 ports
+11:43:27.677   Master/sound  ..Using delay buffer with WSOLA.
+11:43:27.683    pjsua_vid.c  ..Initializing video subsystem..
+11:43:29.031    dshow_dev.c  ...DShow has 3 devices:
+11:43:29.032    dshow_dev.c  ... dev_id 0: Integrated Camera (capture)
+11:43:29.034    dshow_dev.c  ... dev_id 1: VDeskCam (capture)
+11:43:29.037    dshow_dev.c  ... dev_id 2: 17GuaGua Cam (capture)
+11:43:29.048      sdl_dev.c  ...SDL 2.0 initialized
+11:43:29.053 colorbar_dev.c  ...Colorbar video src initialized with 2 device(s):
+11:43:29.056 colorbar_dev.c  ... 0: Colorbar generator
+11:43:29.060 colorbar_dev.c  ... 1: Colorbar-active
+11:43:29.064 sip_endpoint.c  .Module "mod-evsub" registered
+11:43:29.066 sip_endpoint.c  .Module "mod-presence" registered
+11:43:29.069        evsub.c  .Event pkg "presence" registered by mod-presence
+11:43:29.069 sip_endpoint.c  .Module "mod-mwi" registered
+11:43:29.071        evsub.c  .Event pkg "message-summary" registered by mod-mwi
+11:43:29.071 sip_endpoint.c  .Module "mod-refer" registered
+11:43:29.074        evsub.c  .Event pkg "refer" registered by mod-refer
+11:43:29.074 sip_endpoint.c  .Module "mod-pjsua-pres" registered
+11:43:29.076 sip_endpoint.c  .Module "mod-pjsua-im" registered
+11:43:29.079 sip_endpoint.c  .Module "mod-pjsua-options" registered
+11:43:29.082   pjsua_core.c  .1 SIP worker threads created
+11:43:29.085   pjsua_core.c  .pjsua version 2.7.1 for win32-6.1/i386/msvc-15.0 initialized
+11:43:29.088   pjsua_core.c  .PJSUA state changed: CREATED --> INIT
+11:43:29.091   FocusSip.cpp !log_cfg.level = 5
+11:43:29.094   pjsua_core.c  PJSUA state changed: INIT --> STARTING
+11:43:29.096 sip_endpoint.c  .Module "mod-unsolicited-mwi" registered
+11:43:29.099   pjsua_core.c  .PJSUA state changed: STARTING --> RUNNING
+11:43:29.116   pjsua_core.c  SIP UDP socket reachable at 192.168.2.44:5060
+11:43:29.120    udp03E9EF18  SIP UDP transport started, published address is 192.168.2.44:5060
+11:43:29.136   pjsua_core.c  SIP UDP socket reachable at 192.168.2.44:65071
+11:43:29.138    udp03EA2598  SIP UDP transport started, published address is 192.168.2.44:65071
+11:43:29.227     tcptp:5060  SIP TCP listener ready for incoming connections at 192.168.2.44:5060
+11:43:29.230   pjsua_core.c  Error creating transport: Unsupported transport (PJSIP_EUNSUPTRANSPORT) [status=171060]
+11:43:29.234   pjsua_core.c  Error creating transport: Unsupported transport (PJSIP_EUNSUPTRANSPORT) [status=171060]

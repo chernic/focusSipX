@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'FocusSipAtl'
+		'FocusSipAtl.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {194F9248-F190-4BF8-ADAD-6ED35F0B919D} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{E376B48B-83F4-4739-A258-993BD0BD9057}'
+		}
+	}
+}
