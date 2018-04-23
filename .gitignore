@@ -34,10 +34,19 @@
 #######
 *.ncb
 *.suo
+*.sws
 
+*.obj
+*.res
 *.sbr
 *.tlb
 *.idb
-*.res
+*.ilk
+*.pdb
+*.pch
+*.pdb
+*.dep
+*.manifest
+
 
 
