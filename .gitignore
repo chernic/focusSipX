@@ -55,6 +55,6 @@
 *.manifest
 BuildLog.htm
 
-
-
+Debug
+Release
 
