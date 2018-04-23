@@ -32,10 +32,17 @@
 *.app
 
 #######
+.svn
+
 *.ncb
 *.suo
 *.sws
+*.pdsync
+*.pdsyncu
 
+
+*.bsc
+*.dep
 *.obj
 *.res
 *.sbr
@@ -45,8 +52,9 @@
 *.pdb
 *.pch
 *.pdb
-*.dep
 *.manifest
+BuildLog.htm
+
 
 
 
