@@ -18,8 +18,8 @@ void Overlay::setTwoWinShow(void){
 void Overlay::updateThumbnailSize(void){
     if( sWs==0 || sHs==0 || sScale==0 )
         setDefaultScreen();
-    sWt = sWs*sScale;
-    sHt = sHs*sScale;
+    sWt = (int) (sWs*sScale);
+    sHt = (int) (sHs*sScale);
 }
 void Overlay::setDefaultScreen(void){
     sWs    = GetSystemMetrics(SM_CXSCREEN)/2;
