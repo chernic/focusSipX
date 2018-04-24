@@ -1,10 +1,50 @@
-
 1. 运行bat脚本 $\pjproject-2.7.1\Deploy\%Step1_setDLLExportAsSys.bat, 
    作用是添加$\pjproject-2.7.1\Deploy\DLLExport目录到系统目录
    亦可将DLLExport内文件拷贝到ocx所在目录
    如$\pjproject-2.7.1\Deploy\i386-Win32-vc8-Debug
 2. 打开工程 $\pjproject-2.7.1\pjproject-vs8.sln
    进行编译生成解决方案/生成工程等
-
 3. 直接运行 $\pjproject-2.7.1\Deploy\FocusSipAtl.html 进行测试
+
+
+
+$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)\$(ProjectName).ocx
+
+"$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)";"$(SolutionDir)..\FFmpeg\win\x86\lib";"$(SolutionDir)..\SDL\SDL2-2.0.7\lib\x86"
+
+$(SolutionDir)Deploy\$(ConfigurationName)\$(ProjectName)
+
+
+$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)\$(ProjectName).ocx
+
+"$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)";"$(SolutionDir)..\FFmpeg\win\x86\lib";"$(SolutionDir)..\SDL\SDL2-2.0.7\lib\x86"
+
+$(SolutionDir)Deploy\$(ConfigurationName)\$(ProjectName)
+
+
+
+"$(SolutionDir)pjlib\include";"$(SolutionDir)pjlib-util\include\";"$(SolutionDir)pjmedia\include";"$(SolutionDir)pjnath\include";"$(SolutionDir)pjsip\include\";"$(SolutionDir)pjsip\src\";"$(SolutionDir)pjsip\src\pjsua2";"$(SolutionDir)pjsip\include\pjsua2";"$(SolutionDir)..\ATL\include";"$(SolutionDir)..\WTL\Include";"$(SolutionDir)..\SDL\SDL2-2.0.7\include";.\agent;.\dialog;.
+
+$(SolutionDir)/Deploy/$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)/$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib
+
+
+$(SolutionDir)/Deploy/$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)/$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib
+
+
+
+
+$(SolutionDir)Deploy/i386-$(PlatformName)-vc8-$(ConfigurationName)/$(ProjectName).ocx
+
+
+$(SolutionDir)/Deploy/$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)/$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib
+
+
+
+
+
+
+
+
+
+
 
