@@ -55,7 +55,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)\pjlib\include&quot;;&quot;$(SolutionDir)\pjsip\include\&quot;;&quot;$(SolutionDir)\pjlib-util\include\&quot;;&quot;$(SolutionDir)\pjmedia\include&quot;;&quot;$(SolutionDir)\pjnath\include&quot;;&quot;$(SolutionDir)\..\ATL\include&quot;;&quot;$(SolutionDir)\..\WTL\Include&quot;;&quot;$(SolutionDir)\..\SDL\SDL2-2.0.7\include&quot;;.\agent;.\dialog;."
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)pjlib\include&quot;;&quot;$(SolutionDir)pjlib-util\include\&quot;;&quot;$(SolutionDir)pjmedia\include&quot;;&quot;$(SolutionDir)pjnath\include&quot;;&quot;$(SolutionDir)pjsip\include\&quot;;&quot;$(SolutionDir)pjsip\src\&quot;;&quot;$(SolutionDir)pjsip\src\pjsua2&quot;;&quot;$(SolutionDir)pjsip\include\pjsua2&quot;;&quot;$(SolutionDir)..\ATL\include&quot;;&quot;$(SolutionDir)..\WTL\Include&quot;;&quot;$(SolutionDir)..\SDL\SDL2-2.0.7\include&quot;;.\agent;.\dialog;."
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -215,6 +215,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\agent\AgileTest.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\compreg.cpp"
 				>
 			</File>
@@ -285,6 +289,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\agent\global.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\settings.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -304,6 +316,10 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\agent\utf.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
@@ -315,7 +331,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\agent\AgileTest.h"
+				>
+			</File>
+			<File
 				RelativePath=".\compreg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\define.h"
 				>
 			</File>
 			<File
@@ -324,10 +348,6 @@
 			</File>
 			<File
 				RelativePath=".\FocusSip.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSip_CP.h"
 				>
 			</File>
 			<File
@@ -343,7 +363,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\agent\global.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\settings.h"
 				>
 			</File>
 			<File
@@ -409,34 +437,6 @@
 			</File>
 			<File
 				RelativePath=".\FocusSipAtl_i.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="agent"
-			>
-			<File
-				RelativePath=".\agent\define.h"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\global.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\global.h"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\settings.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\settings.h"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\utf.cpp"
 				>
 			</File>
 		</Filter>

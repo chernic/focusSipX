@@ -5,7 +5,6 @@
 #include "pjsua2/json.hpp"
 #include "pjsua2/endpoint.hpp"
 #include "pjsua2/account.hpp"
-
 #include "pjsua2/focusua.hpp"
 
 using namespace std;

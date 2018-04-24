@@ -5,18 +5,18 @@
 
 #include "resource.h"       // 主符号
 #include <atlctl.h>
+#pragma warning(disable:4800)
+// 这里是去除4800警告
 #include "FocusSipAtl_i.h"
 // ABChernic
 #include "global.h"
 #include "define.h"
 #include "settings.h"
-//#include "FocusSip_CP.h"
 #include "fs_managewindows.h"
-
 
 // ABChernic : OCX控件避免弹出安全警告的类  http://t.cn/8FYr3t9
 #include <objsafe.h>
-#include "_IVideoAgentEvents_CP.H"
+#include "_IFocusSipEvents_CP.H"
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Windows CE 平台(如不提供完全 DCOM 支持的 Windows Mobile 平台)上无法正确支持单线程 COM 对象。定义 _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA 可强制 ATL 支持创建单线程 COM 对象实现并允许使用其单线程 COM 对象实现。rgs 文件中的线程模型已被设置为“Free”，原因是该模型是非 DCOM Windows CE 平台支持的唯一线程模型。"
@@ -46,10 +46,11 @@ class ATL_NO_VTABLE CFocusSip :
   public CComCoClass<CFocusSip, &CLSID_FocusSip>,
   public CComControl<CFocusSip>,
   // ABChernic
-  public CProxy_IVideoAgentEvents<CFocusSip>,
+  public CProxy_IFocusSipEvents<CFocusSip>,
   /// http://t.cn/RTXGvei
   public IObjectSafetyImpl<CFocusSip, INTERFACESAFE_FOR_UNTRUSTED_CALLER>,
   public IConnectionPointContainerImpl<CFocusSip>
+  //public CProxy_IVideoAgentEvents<CFocusSip>
 {
 public:
 
@@ -144,7 +145,7 @@ public:
     HRESULT OnDraw(ATL_DRAWINFO& di)
     {
     RECT& rc = *(RECT*)di.prcBounds;
-    // 将剪辑区域设置为 di.prcBounds 指定的矩形
+    // 将剪辑区域设置为 di.prcBounds 指定的矩形 
     HRGN hRgnOld = NULL;
     if (GetClipRgn(di.hdcDraw, hRgnOld) != 1)
       hRgnOld = NULL;
@@ -345,9 +346,9 @@ public:
     STDMETHOD(vid_win_resize)(
         /* [in] */          Fs_Doub                 present,
         /* [retval][out] */ Fs_Stat                 *retStatus);
-	BEGIN_CONNECTION_POINT_MAP(CFocusSip)
-		CONNECTION_POINT_ENTRY(__uuidof(_IVideoAgentEvents))
-	END_CONNECTION_POINT_MAP()
+    BEGIN_CONNECTION_POINT_MAP(CFocusSip)
+      CONNECTION_POINT_ENTRY(__uuidof(_IFocusSipEvents))
+    END_CONNECTION_POINT_MAP()
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(FocusSip), CFocusSip)

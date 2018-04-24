@@ -1,8 +1,11 @@
-#include <pjsua2/account.hpp>
-#include <pjsua2/endpoint.hpp>
-#include <pjsua2/presence.hpp>
-#include <pj/ctype.h>
-#include "util.hpp"
+/* $Id: callback.cpp 5676 2018-04-18 15:19:22Z chernic $ */
+#include "stdafx.h"
+
+#include "pj/ctype.h"
+#include "pjsua2/account.hpp"
+#include "pjsua2/endpoint.hpp"
+#include "pjsua2/presence.hpp"
+#include "pjsua2/util.hpp"
 
 using namespace pj;
 using namespace std;
