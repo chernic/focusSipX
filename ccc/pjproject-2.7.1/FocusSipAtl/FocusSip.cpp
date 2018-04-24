@@ -886,7 +886,7 @@ STDMETHODIMP CFocusSip::app_construct(
 //      log_cfg.level = 5;
 
         log_cfg.console_level = 4;
-        log_cfg.log_filename =pj_str("abc.txt");
+        log_cfg.log_filename =pj_str("FocusSipAtl.txt");
 
 //      log_cfg.decor = PJ_LOG_HAS_SENDER | PJ_LOG_HAS_TIME | PJ_LOG_HAS_MICRO_SEC | PJ_LOG_HAS_NEWLINE | PJ_LOG_HAS_SPACE;
 //#if defined(PJ_WIN32) && PJ_WIN32 != 0
