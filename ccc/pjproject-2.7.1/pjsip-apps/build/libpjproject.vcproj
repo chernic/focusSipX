@@ -80,7 +80,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				LinkLibraryDependencies="true"
-				OutputFile="$(SolutionDir)/Deploy/$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)/$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib"
+				OutputFile="$(SolutionDir)Deploy\$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)\$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -278,7 +278,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				LinkLibraryDependencies="true"
-				OutputFile="$(SolutionDir)/Deploy/$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)/$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib"
+				OutputFile="$(SolutionDir)Deploy\$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName)\$(ProjectName)-$(TargetCPU)-$(PlatformName)-vc$(VSVer)-$(ConfigurationName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
