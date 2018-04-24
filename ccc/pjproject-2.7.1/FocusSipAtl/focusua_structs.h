@@ -91,7 +91,7 @@ Focusip_Buddy_State{
     PJSUA_BUDDY_STATE_OFFLINE    = ( PJSUA_BUDDY_STATE_ONLINE + 1 )
 }Focusip_Buddy_State;
 
-/* 04 SIP URI(资源标志符)
+/* 
  * struct sip_uri
  * From: \pjsip\include\pjsip\sip_uri.h
  * see : http://www.pjsip.org/pjsip/docs/html/structpjsip__uri.htm
@@ -103,7 +103,7 @@ Focusip_Buddy_State{
  *         method=ACK;pickup=hurry;
  *         message=I%20am%20sorry?
  *         Subject=Hello%20There&Server=SIP%20Server
- */
+ */ //04 SIP URI(资源标志符)
 typedef /* [helpstring][version][uuid] */  DECLSPEC_UUID("04BA8132-E099-44e6-A668-E1B526517A9D")
 struct Focusip_Sip_Uri {
     Fs__Str display;        //
@@ -125,8 +125,8 @@ struct Focusip_Sip_Uri {
     Fs__Str param_other;    // Other parameters grouped together.       可选参数/其他参数
     Fs__Str param_header;   // Optional header parameter.               可选参数/
 }Focusip_Sip_Uri;
-
-/* 05 认证信息
+ 
+/*
  *struct pjsip_cred_info
  *From: \pjsip\include\pjsip\sip_auth.h
  *see : \pjsip\docs\html\page_pjsip_sample_simple_ua_c.htm
@@ -153,37 +153,43 @@ struct Focusip_Acc_Config{
     SAFEARRAY * cred_info;
 }Focusip_Acc_Config;
 
-// 07 通话信息 A4DCBC38-A768-4682-A54F-3A273892BC4F
+// 07 通话信息
 typedef /* [helpstring][version][uuid] */  DECLSPEC_UUID("07076348-B31B-4844-8BF1-FC8DEF3BC121")
 struct Focusip_Call_Info{
-    Fs_Numb index;
-    Fs_Bool active;
-    Fs_Bool is_uac;
-    Fs__Str local_info;
-    Fs__Str remote_info;
-    Focusip_Call_State state;
-    Fs__Str state_text;
-    Fs_Numb connect_duration;
-    Fs_Numb total_duration;
-    Fs_Numb last_status;
-    Fs__Str last_status_text;
-    Fs_Bool has_media;
-    Fs_Numb conf_slot;
+    Fs_Numb     index;                  // c1->id;
+    Fs_Bool     active;                 // pjsua_call_is_active(callIndex);
+    Fs_Bool     is_uac;                 // (pjsua_call_info->role == PJSIP_ROLE_UAC)
+    Fs__Str     local_info;             // pjsua_call_info->local_info
+    Fs__Str     remote_info;            // pjsua_call_info->remote_info
+    Fs_Numb     state;                  // pjsua_call_info->state;
+    Fs__Str     state_text;             // pjsua_call_info->state_text);
+    Fs_Numb     connect_duration;       // pjsua_call_info->connect_duration.sec;
+    Fs_Numb     total_duration;         // pjsua_call_info->total_duration.sec;
+    Fs_Numb     last_status;            // pjsua_call_info->last_status;
+    Fs__Str     last_status_text;       // pjsua_call_info->last_status_text);
+    Fs_Bool     has_media;              // pjsua_call_has_media(callIndex);
+    Fs_Numb     conf_slot;              // pjsua_call_info->conf_slot;
 }Focusip_Call_Info;
 
 // 08 邻席信息
 typedef /* [helpstring][version][uuid] */  DECLSPEC_UUID("08CC26A6-29F4-4006-B906-D3F0C115E487")
 struct Focusip_Buddy_Info{
-    Fs_Numb index;
-    Fs_Bool is_valid;
-    Fs__Str name;
-    Fs__Str display;
-    Fs__Str host;
-    Fs_Numb port;
-    Fs__URI uri;
-    Focusip_Buddy_State status;
-    Fs__Str status_text;
-    Fs_Bool monitor;
+    Fs_Numb     index;                  // F01 标识
+    Fs__Str     number;                 // F02 电话号码
+    Fs__Str     name;                   // F02 名称
+    Fs__Str     host;                   // F03 服务器
+    Fs_Numb     port;                   // F04 端口号
+    Fs__URI     uri;                    // F05 URI
+	Fs__Str	    contact;                // F07 联系人
+
+    Fs_Numb     status;                 // F08 在线状态
+    Fs__Str     status_text;            // F09 状态描述
+
+    Fs_Bool     monitor;                // F10 是否监控
+	Fs_Bool	    presence;	            // F11 是否出席
+	Fs_Bool	    directory;				// F12 是否路径
+	Fs_Bool		ringing;				// F13 是否响铃	
+	Fs_Bool		candidate;				// F14 是否新增
 }Focusip_Buddy_Info;
 
 // 09 端口信息
@@ -206,12 +212,11 @@ struct Focusip_Reg_Info{
     Fs_Numb index;
 }Focusip_Reg_Info;
 
-///////////////////////////////////////////////////////////////////
-// 11 注册信息
-typedef /* [helpstring][version][uuid] */  DECLSPEC_UUID("11908C68-BA3B-4e04-87FA-D1DF6B8DA88E")
-struct Focusip_TI_Info{
-    Fs_Numb index;
-}Focusip_TI_Info;
+// 11
+// typedef /* [helpstring][version][uuid] */  DECLSPEC_UUID("11908C68-BA3B-4e04-87FA-D1DF6B8DA88E")
+// struct Focusip_TI_Info{
+    // Fs_Numb index;
+// }Focusip_TI_Info;
 
 
 ///////////////////////////////////////////////////////////////////
