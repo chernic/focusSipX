@@ -11,8 +11,34 @@ import "oaidl.idl";
 import "ocidl.idl";
 import "focusua_structs.idl";
 
-/// IID_IApp                    ===> IID_IFocusSip
-/// LIBID_ACTIVEVIDEOAGENTLib   ===> LIBID_FocusSipAtlLib
+// idl 编译器会将 以下变量翻译成C语言
+// 并生成在文件FocusSipAtl_i.h 
+const USHORT ID_OnAboutBox             = 999;
+const USHORT ID_OnTestJsonString       = 100;
+
+const USHORT ID_OnCallState            = 1;
+const USHORT ID_OnJsonCallState        = 101;
+
+const USHORT ID_OnIncomingCall         = 2;
+const USHORT ID_OnJsonIncomingCall     = 102;
+
+const USHORT ID_OnTsxState             = 3;
+const USHORT ID_OnJsonTsxState         = 103;
+
+const USHORT ID_OnMediaState           = 4;
+const USHORT ID_OnJsonMediaState       = 104;
+
+const USHORT ID_OnStreamCreated2       = 7;
+const USHORT ID_OnJsonStreamCreated2   = 107;
+
+const USHORT ID_OnStreamDestroyed      = 8;
+const USHORT ID_OnJsonStreamDestroyed  = 108;
+
+const USHORT ID_OnRegState2            = 21;
+const USHORT ID_OnJsonRegState2        = 121;
+
+const USHORT ID_OnBuddyState           = 24;
+const USHORT ID_OnJsonBuddyState       = 124;
 
 [ // ABChernic : IComponentRegistrar
   object,
@@ -201,13 +227,28 @@ library FocusSipAtlLib{
     importlib("stdole32.tlb");
     importlib("stdole2.tlb");
 
+    // 04 SIP URI(资源标志符)
+    struct Focusip_Sip_Uri;
+    // 05 认证信息
     struct Focusip_Cred_Info;
+    // 06 账户信息
     struct Focusip_Acc_Config;
-    struct Focusip_Config;
+    // 07 通话信息
     struct Focusip_Call_Info;
+    // 08 邻席信息
     struct Focusip_Buddy_Info;
-    struct Focusip_Acc_Info;
+    // 09 端口信息
     struct Focusip_Conf_Port_Info;
+    // 10 注册信息
+    struct Focusip_Reg_Info;
+    
+    //// 11 信息
+    // struct Focusip_TI_Info;
+    
+    // 20 账户信息
+    struct Focusip_Acc_Info;
+    // 21 全局信息
+    struct Focusip_Config;
 
     //Chernic: COM 注册类
     [
@@ -219,38 +260,80 @@ library FocusSipAtlLib{
         [default] interface IComponentRegistrar;
     };
 
-    //Chernic: 回调函数
+    //Chernic: 回调函数(事件) 接口
+    //Chernic: 需要在创建FocusSip类时,在options那里选上connection point
+    //Chernic: 选择类视图, 添加方法
     [
       uuid(DC91CBCE-4B9E-4369-80B9-39341EEFD814),
-      helpstring("_IVideoAgentEvents Interface")
+      helpstring("_IFocusSipEvents Interface")
     ]
-    dispinterface _IVideoAgentEvents
+    dispinterface _IFocusSipEvents
     {
         properties:
         methods:
-        // ABChernic
-        [id(1), helpstring("method OnRegState")]
-            void OnRegState         ([in] int acc_id);
 
-        [id(2), helpstring("method OnCallState")]
-            void OnCallState        ([in] int callIndex, [in] Focusip_Call_Info *cInfo);
+            // 999
+            [id(ID_OnAboutBox), helpstring("method OnAboutBox")]                        void OnAboutBox(
+                [in] FLOAT parmA,      [in] FLOAT parmB);
+            // 100
+            [id(ID_OnTestJsonString), helpstring("method OnTestJsonString")]            void OnTestJsonString(
+                [in] BSTR json);
 
-        [id(3), helpstring("method OnBuddcyState")]
-            void OnBuddyState       ([in] int buddy_index);
 
-        [id(4), helpstring("method OnIncomingPager")]
-            void OnIncomingPager    ([in] int callIndex, [in] BSTR fromUri, [in] BSTR toURI, [in] BSTR pagerText);
+            // 001
+            [id(ID_OnCallState), helpstring("method OnCallState")]                      void OnCallState(
+                [in] INT callIndex,    [in] Focusip_Call_Info*  cInfo);
+            // 101
+            [id(ID_OnJsonCallState), helpstring("method OnJsonCallState")]              void OnJsonCallState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
 
-        [id(5), helpstring("method OnIncomingCall")]
-            void OnIncomingCall     ([in] int callIndex);
-        
-        [id(6), helpstring("method OnTypingIndication")] // TI = TypingIndication
-            // void OnTypingIndication ([in] int callIndex, [in] BSTR fromUri, [in] BSTR toURI, [in] int isTyping);
-            void OnTypingIndication ([in] int callIndex, [in] Focusip_TI_Info *tiInfo);
-		
-	};
-            
-    // ABChernic : FocusSip 
+
+            // 002  
+            [id(ID_OnIncomingCall), helpstring("method OnIncomingCall")]                void OnIncomingCall(
+                [in] INT callIndex);
+            // 102
+            [id(ID_OnJsonIncomingCall), helpstring("method OnJsonIncomingCall")]        void OnJsonIncomingCall(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 003
+            [id(ID_OnTsxState), helpstring("method OnCallTsxState")]                    void OnCallTsxState(
+                [in] INT callIndex);
+            // 103
+            [id(ID_OnJsonTsxState), helpstring("method OnJsonTsxState")]                void OnJsonTsxState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 004
+            [id(ID_OnMediaState), helpstring("method OnMediaState")]                    void OnMediaState(
+                [in] INT callIndex);
+            // 104
+            [id(ID_OnJsonMediaState), helpstring("method OnJsonMediaState")]            void OnJsonMediaState(
+                [in] INT callIndex,     [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 021
+            [id(ID_OnRegState2), helpstring("method OnRegState2")]                      void OnRegState2(
+                [in] INT accIndex,      [in] Focusip_Reg_Info*   rInfo);
+            // 121
+            [id(ID_OnJsonRegState2), helpstring("method OnJsonRegState2")]              void OnJsonRegState2(
+                [in] INT accIndex,      [in] BSTR jsonData, [in] INT jsonSize);
+
+
+            // 024
+            [id(ID_OnBuddyState), helpstring("method OnBuddyState")]                    void OnBuddyState(
+                [in] INT buddyIndex,    [in] Focusip_Buddy_Info* bInfo);
+            // 124
+            [id(ID_OnJsonBuddyState), helpstring("method OnJsonBuddyState")]            void OnJsonBuddyState(
+                [in] INT buddyIndex,    [in] BSTR jsonData, [in] INT jsonSize);
+
+            /*
+            [id(ID_OnIncomingPager), helpstring("method OnIncomingPager")]              void OnIncomingPager(
+                [in] INT callIndex,  [in] BSTR fromUri, [in] BSTR toURI, [in] BSTR pagerText);
+            */
+    };
+
+    // ABChernic : FocusSip 类
     [
         uuid(15E1E788-3086-4B54-83C0-449EF56CD4EE),
         control,
@@ -259,7 +342,7 @@ library FocusSipAtlLib{
     coclass FocusSip
     {
         [default] interface IFocusSip;
-        [default, source] dispinterface _IVideoAgentEvents;
+        [default, source] dispinterface _IFocusSipEvents;
     };
 
 
