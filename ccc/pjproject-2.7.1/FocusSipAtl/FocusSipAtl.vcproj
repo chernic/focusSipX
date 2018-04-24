@@ -55,7 +55,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)pjlib\include&quot;;&quot;$(SolutionDir)pjsip\include\&quot;;&quot;$(SolutionDir)pjlib-util\include\&quot;;&quot;$(SolutionDir)pjmedia\include&quot;;&quot;$(SolutionDir)pjnath\include&quot;;&quot;$(SolutionDir)pjsip\include&quot;;&quot;$(SolutionDir)pjsip\src&quot;;&quot;$(SolutionDir)pjsip\src\pjsua2&quot;;&quot;$(SolutionDir)\..\ATL\include&quot;;&quot;$(SolutionDir)\..\WTL\Include&quot;;&quot;$(SolutionDir)\..\SDL\SDL2-2.0.7\include&quot;;.\agent;.\dialog;."
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)\pjlib\include&quot;;&quot;$(SolutionDir)\pjsip\include\&quot;;&quot;$(SolutionDir)\pjlib-util\include\&quot;;&quot;$(SolutionDir)\pjmedia\include&quot;;&quot;$(SolutionDir)\pjnath\include&quot;;&quot;$(SolutionDir)\..\ATL\include&quot;;&quot;$(SolutionDir)\..\WTL\Include&quot;;&quot;$(SolutionDir)\..\SDL\SDL2-2.0.7\include&quot;;.\agent;.\dialog;."
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG;_USRDLL"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -81,9 +81,9 @@
 				RegisterOutput="true"
 				IgnoreImportLibrary="true"
 				AdditionalDependencies="comsvcs.lib dsound.lib dxguid.lib netapi32.lib mswsock.lib ws2_32.lib odbc32.lib odbccp32.lib gdiplus.lib SDL2.lib libpjproject-i386-Win32-vc8-$(ConfigurationName).lib"
-				OutputFile="$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)\$(ProjectName).ocx"
+				OutputFile="$(SolutionDir)/Deploy/i386-$(PlatformName)-vc8-$(ConfigurationName)/$(ProjectName).ocx"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(SolutionDir)Deploy\i386-$(PlatformName)-vc8-$(ConfigurationName)&quot;;&quot;$(SolutionDir)\..\FFmpeg\win\x86\lib&quot;;&quot;$(SolutionDir)\..\SDL\SDL2-2.0.7\lib\x86&quot;"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)/Deploy/i386-$(PlatformName)-vc8-$(ConfigurationName)&quot;;&quot;$(SolutionDir)\..\FFmpeg\win\x86\lib&quot;;&quot;$(SolutionDir)\..\SDL\SDL2-2.0.7\lib\x86&quot;"
 				ModuleDefinitionFile=".\FocusSipAtl.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -210,6 +210,152 @@
 	</References>
 	<Files>
 		<Filter
+			Name="源文件"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath=".\compreg.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\dllmain.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+						CompileAsManaged="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+						CompileAsManaged="0"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\FocusSip.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSipAtl-Release.def"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSipAtl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSipAtl.def"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSipAtl.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\focusua_common.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\focusua_structs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\focusua_structs.idl"
+				>
+			</File>
+			<File
+				RelativePath=".\focusua_typedef.h"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\fs_managewindows.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\fs_overlay.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="头文件"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath=".\_IVideoAgentEvents_CP.H"
+				>
+			</File>
+			<File
+				RelativePath=".\compreg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\dllmain.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSip.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FocusSip_CP.h"
+				>
+			</File>
+			<File
+				RelativePath=".\focusua_common.h"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\fs_managewindows.h"
+				>
+			</File>
+			<File
+				RelativePath=".\agent\fs_overlay.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\targetver.h"
+				>
+			</File>
+		</Filter>
+		<Filter
 			Name="资源文件"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
@@ -232,10 +378,6 @@
 			</File>
 			<File
 				RelativePath=".\FocusSipAtl.rgs"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSipAtl_i.h"
 				>
 			</File>
 		</Filter>
@@ -265,40 +407,16 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\FocusSipAtl_i.h"
+				>
+			</File>
 		</Filter>
 		<Filter
-			Name="manual"
+			Name="agent"
 			>
 			<File
-				RelativePath=".\AgileTest.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\AgileTest.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSip.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSipAtl.idl"
-				>
-			</File>
-			<File
-				RelativePath=".\focusua_common.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\focusua_structs.idl"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\fs_managewindows.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\fs_overlay.cpp"
+				RelativePath=".\agent\define.h"
 				>
 			</File>
 			<File
@@ -306,133 +424,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\agent\settings.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\utf.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="wizard"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
-			>
-			<File
-				RelativePath=".\compreg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\compreg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\dllmain.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-						CompileAsManaged="0"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="0"
-						CompileAsManaged="0"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\dllmain.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSipAtl-Release.def"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSipAtl.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSipAtl.def"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="头文件"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath=".\_IFocusSipEvents_CP.H"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\define.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FocusSip.h"
-				>
-			</File>
-			<File
-				RelativePath=".\focusua_common.h"
-				>
-			</File>
-			<File
-				RelativePath=".\focusua_structs.h"
-				>
-			</File>
-			<File
-				RelativePath=".\focusua_typedef.h"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\fs_managewindows.h"
-				>
-			</File>
-			<File
-				RelativePath=".\agent\fs_overlay.h"
-				>
-			</File>
-			<File
 				RelativePath=".\agent\global.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Resource.h"
+				RelativePath=".\agent\settings.cpp"
 				>
 			</File>
 			<File
@@ -440,13 +436,9 @@
 				>
 			</File>
 			<File
-				RelativePath=".\targetver.h"
+				RelativePath=".\agent\utf.cpp"
 				>
 			</File>
-		</Filter>
-		<Filter
-			Name="focusua2"
-			>
 		</Filter>
 		<File
 			RelativePath=".\FocusSip.htm"

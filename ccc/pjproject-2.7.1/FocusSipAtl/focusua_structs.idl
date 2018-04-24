@@ -89,42 +89,38 @@ typedef struct Focusip_Acc_Info{
     helpstring("PJSUA Call Information"),
 ]
 typedef struct Focusip_Call_Info{
-    Fs_Numb     index;
-    Fs_Bool     active;
-    Fs_Bool     is_uac;
-    Fs__Str     local_info;
-    Fs__Str     remote_info;
-    Fs_Numb     state;
-    Fs__Str     state_text;
-    Fs_Numb     connect_duration;
-    Fs_Numb     total_duration;
-    Fs_Numb     last_status;
-    Fs__Str     last_status_text;
-    Fs_Bool     has_media;
-    Fs_Numb     conf_slot;
+    Fs_Numb                             index;
+    Fs_Bool                             active;
+    Fs_Bool                             is_uac;
+    Fs__Str                             local_info;
+    Fs__Str                             remote_info;
+    Focusip_Call_State                  state;
+    Fs__Str                             state_text;
+    Fs_Numb                             connect_duration;
+    Fs_Numb                             total_duration;
+    Fs_Numb                             last_status;
+    Fs__Str                             last_status_text;
+    Fs_Bool                             has_media;
+    Fs_Numb                             conf_slot;
 }Focusip_Call_Info;
+
+
 [ // 8 邻席信息
     uuid(08CC26A6-29F4-4006-B906-D3F0C115E487),
     version(1.0),
     helpstring("PJSUA Buddy Information"),
 ]
 typedef struct Focusip_Buddy_Info{
-    Fs_Numb     index;                  // F01 标识
-    Fs__Str     number;                 // F02 电话号码
-    Fs__Str     name;                   // F02 名称
-    Fs__Str     host;                   // F03 服务器
-    Fs_Numb     port;                   // F04 端口号
-    Fs__URI     uri;                    // F05 URI
-	Fs__Str	    contact;                // F07 联系人
-
-    Fs_Numb     status;                 // F08 在线状态
-    Fs__Str     status_text;            // F09 状态描述
-
-    Fs_Bool     monitor;                // F10 是否监控
-	Fs_Bool	    presence;	            // F11 是否出席
-	Fs_Bool	    directory;				// F12 是否路径
-	Fs_Bool		ringing;				// F13 是否响铃	
-	Fs_Bool		candidate;				// F14 是否新增
+    Fs_Numb                             index;
+    Fs_Bool                             is_valid;
+    Fs__Str                             name;
+    Fs__Str                             display;
+    Fs__Str                             host;
+    Fs_Numb                             port;
+    Fs__URI                             uri;
+    Focusip_Buddy_State              status;
+    Fs__Str                             status_text;
+    Fs_Bool                             monitor;
 }Focusip_Buddy_Info;
 [ // 9 端口信息
     uuid(096B030B-EB36-4cd8-A2D9-FA3C03267FF2),
@@ -148,7 +144,6 @@ typedef struct Focusip_Conf_Port_Info{
 typedef struct Focusip_Reg_Info{
     Fs_Numb index;
 }Focusip_Reg_Info;
-/*
 [ // 11 输入信息
     uuid(11908C68-BA3B-4e04-87FA-D1DF6B8DA88E),
     version(1.0),
@@ -157,7 +152,6 @@ typedef struct Focusip_Reg_Info{
 typedef struct Focusip_TI_Info{
     Fs_Numb index;
 }Focusip_TI_Info;
-*/
 
 [ // 20 账户设置`
     uuid(20390D89-4081-432c-BEEA-D22A8CDB1958),
