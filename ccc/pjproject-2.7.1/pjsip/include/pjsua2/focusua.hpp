@@ -40,19 +40,19 @@ struct JsonOnIncomingCallParam: public PersistentObject{
     string      srcAddress;
     // void     *pjRxData;
 public:
-    /*  ä¸æ·»åŠ ä»¥ä¸‹è™šå‡½æ•°åˆ™ä¼šæœ‰ä»¥ä¸‹æŠ¥é”™
-    1>focussip.cpp(1687) : error C2039: â€œfromPjâ€: ä¸æ˜¯â€œpj::JsonOnIncomingCallParamâ€çš„æˆå‘˜
-    1>        account.hpp(1365) : å‚è§â€œpj::JsonOnIncomingCallParamâ€çš„å£°æ˜Ž
+    /*  ²»Ìí¼ÓÒÔÏÂÐéº¯ÊýÔò»áÓÐÒÔÏÂ±¨´í
+    1>focussip.cpp(1687) : error C2039: ¡°fromPj¡±: ²»ÊÇ¡°pj::JsonOnIncomingCallParam¡±µÄ³ÉÔ±
+    1>        account.hpp(1365) : ²Î¼û¡°pj::JsonOnIncomingCallParam¡±µÄÉùÃ÷
      */
     void fromPj(int call_id, pjsip_rx_data &rdata);
 
-    /*  ä¸æ·»åŠ ä»¥ä¸‹è™šå‡½æ•°åˆ™ä¼šæœ‰ä»¥ä¸‹æŠ¥é”™
-    1>focussip.cpp(1686) : error C2259: â€œpj::JsonOnIncomingCallParamâ€: ä¸èƒ½å®žä¾‹åŒ–æŠ½è±¡ç±»
-    1>        ç”±äºŽä¸‹åˆ—æˆå‘˜:
-    1>        â€œvoid pj::PersistentObject::readObject(const pj::ContainerNode &) throw(pj::Error)â€: æ˜¯æŠ½è±¡çš„
-    1>        persistent.hpp(65) : å‚è§â€œpj::PersistentObject::readObjectâ€çš„å£°æ˜Ž
-    1>        â€œvoid pj::PersistentObject::writeObject(pj::ContainerNode &) throw(pj::Error) constâ€: æ˜¯æŠ½è±¡çš„
-    1>        persistent.hpp(72) : å‚è§â€œpj::PersistentObject::writeObjectâ€çš„å£°æ˜Ž
+    /*  ²»Ìí¼ÓÒÔÏÂÐéº¯ÊýÔò»áÓÐÒÔÏÂ±¨´í
+    1>focussip.cpp(1686) : error C2259: ¡°pj::JsonOnIncomingCallParam¡±: ²»ÄÜÊµÀý»¯³éÏóÀà
+    1>        ÓÉÓÚÏÂÁÐ³ÉÔ±:
+    1>        ¡°void pj::PersistentObject::readObject(const pj::ContainerNode &) throw(pj::Error)¡±: ÊÇ³éÏóµÄ
+    1>        persistent.hpp(65) : ²Î¼û¡°pj::PersistentObject::readObject¡±µÄÉùÃ÷
+    1>        ¡°void pj::PersistentObject::writeObject(pj::ContainerNode &) throw(pj::Error) const¡±: ÊÇ³éÏóµÄ
+    1>        persistent.hpp(72) : ²Î¼û¡°pj::PersistentObject::writeObject¡±µÄÉùÃ÷
     */
     virtual void readObject(const ContainerNode &node) throw(Error);
     virtual void writeObject(ContainerNode &node) const throw(Error);
