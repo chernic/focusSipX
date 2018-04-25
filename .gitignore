@@ -64,3 +64,8 @@ Release
 *_p.c
 *.ocx
 
+/ccc/pjproject-2.7.1/MyCom
+/ccc/pjproject-2.7.1/FocusSipAtl/AgileTest.cpp
+/ccc/pjproject-2.7.1/FocusSipAtl/AgileTest.h
+/ccc/pjproject-2.7.1/FocusSipAtl/focusua2/callback.cpp
+/ccc/pjproject-2.7.1/FocusSipAtl/focusua2/callback.hpp
